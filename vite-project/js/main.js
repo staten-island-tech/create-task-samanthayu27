@@ -1,5 +1,5 @@
 import { fooditem } from './array';
-import '../styles/style.css'
+import '../styles/style.css';
 
 const DOMSelectors = {
   startbutton: document.querySelector('.startbutton'),
@@ -15,275 +15,364 @@ const DOMSelectors = {
   butteredlobsterrecipe: document.querySelector('.butteredlobsterrecipe'),
   rackoflambrecipe: document.querySelector('.rackoflambrecipe'),
   mangocheesecakerecipe: document.querySelector('.mangocheesecakerecipe'),
-  macaroonseventrecipe: document.querySelector('.macaroonsrecipe'),
+  macaroonsrecipe: document.querySelector('.macaroonsrecipe'),
   pastarecipe: document.querySelector('.pastarecipe'),
   wagyurecipe: document.querySelector('.wagyurecipe'),
-  checkbutton: document.querySelector('.checkbutton')
+  checkbutton: document.querySelector('.checkbutton'),
+};
+
+function clearHTML() {
+  DOMSelectors.cardcontainer.innerHTML = '';
 }
 
-function clearHTML(){
-  DOMSelectors.cardcontainer.innerHTML='';
-}
+DOMSelectors.startbutton.addEventListener('click', () => makeacard(fooditem));
 
-DOMSelectors.startbutton.addEventListener('click', () => makeacard(fooditem))
-//the () sets a callback arguement which means that a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
-
-function makeacard(arr){
-  clearHTML()
+function makeacard(arr) {
+  clearHTML();
   arr.forEach((fooditem) => {
     DOMSelectors.cardcontainer.insertAdjacentHTML(
       'beforeend',
-      `<div class = "recipe">
-      <h4>${fooditem.name}</h4>
-      <h4>${fooditem.description}</h4>
-      <h5>Difficulty Level:${fooditem.difficulty}</h5>
-      ${fooditem.button}
+      `<div class="recipe">
+        <h4>${fooditem.name}</h4>
+        <h5>Difficulty Level:${fooditem.difficulty}</h5>
+        ${fooditem.button}
       </div>`
-    )
-  })
-  sparklingwatereventlistener()
-  icecreameventlistener()
-  tomatosoupeventlistener()
-  greeksaladeventlistener()
-  shrimpcocktaileventlistener()
-  sushiplattereventlistener()
-  salmonfilleteventlistener()
-  crepeseventlistener()
-  butteredlobstereventlistener()
-  rackoflambeventlistener()
-  macaroonseventlistener()
-  mangocheesecakeeventlistener()
-  pastaeventlistener()
-  wagyueventlistener()
+    );
+  });
+  sparklingwatereventlistener();
+  icecreameventlistener();
+  tomatosoupeventlistener();
+  greeksaladeventlistener();
+  shrimpcocktaileventlistener();
+  sushiplattereventlistener();
+  salmonfilleteventlistener();
+  crepeseventlistener();
+  butteredlobstereventlistener();
+  rackoflambeventlistener();
+  macaroonseventlistener();
+  mangocheesecakeeventlistener();
+  pastaeventlistener();
+  wagyueventlistener();
 }
 
 function sparklingwatereventlistener() {
-  DOMSelectors.sparklingwaterrecipe = document.querySelector('.sparklingwaterrecipe')
-  DOMSelectors.sparklingwaterrecipe.addEventListener('click',sparklingwateringredients)
+  DOMSelectors.sparklingwaterrecipe = document.querySelector('.sparklingwaterrecipe');
+  DOMSelectors.sparklingwaterrecipe.addEventListener('click', sparklingwateringredients);
 }
 
 function icecreameventlistener() {
-  DOMSelectors.icecreamrecipe = document.querySelector('.icecreamrecipe')
-  DOMSelectors.icecreamrecipe.addEventListener('click',icecreamingredients)
+  DOMSelectors.icecreamrecipe = document.querySelector('.icecreamrecipe');
+  DOMSelectors.icecreamrecipe.addEventListener('click', icecreamingredients);
 }
 
 function tomatosoupeventlistener() {
-  DOMSelectors.tomatosouprecipe = document.querySelector('.tomatosouprecipe')
-  DOMSelectors.tomatosouprecipe.addEventListener('click', tomatosoupstep1)
+  DOMSelectors.tomatosouprecipe = document.querySelector('.tomatosouprecipe');
+  DOMSelectors.tomatosouprecipe.addEventListener('click', tomatosoupstep1);
 }
 
 function greeksaladeventlistener() {
-  DOMSelectors.greeksaladrecipe = document.querySelector('.greeksaladrecipe')
-  DOMSelectors.greeksaladrecipe.addEventListener('click',greeksaladstep1)
+  DOMSelectors.greeksaladrecipe = document.querySelector('.greeksaladrecipe');
+  DOMSelectors.greeksaladrecipe.addEventListener('click', greeksaladstep1);
 }
 
 function shrimpcocktaileventlistener() {
-  DOMSelectors.shrimpcocktailrecipe = document.querySelector('.shrimpcocktailrecipe')
-  DOMSelectors.shrimpcocktailrecipe.addEventListener('click',shrimpcocktailstep1)
+  DOMSelectors.shrimpcocktailrecipe = document.querySelector('.shrimpcocktailrecipe');
+  DOMSelectors.shrimpcocktailrecipe.addEventListener('click', shrimpcocktailstep1);
 }
 
 function sushiplattereventlistener() {
-  DOMSelectors.sushiplatterrecipe = document.querySelector('.sushiplatterrecipe')
-  DOMSelectors.sushiplatterrecipe.addEventListener('click',sushiplatterstep1)
+  DOMSelectors.sushiplatterrecipe = document.querySelector('.sushiplatterrecipe');
+  DOMSelectors.sushiplatterrecipe.addEventListener('click', sushiplatterstep1);
 }
 
 function salmonfilleteventlistener() {
-  DOMSelectors.salmonfilletrecipe = document.querySelector('.salmonfilletrecipe')
-  DOMSelectors.salmonfilletrecipe.addEventListener('click',salmonfilletstep1)
+  DOMSelectors.salmonfilletrecipe = document.querySelector('.salmonfilletrecipe');
+  DOMSelectors.salmonfilletrecipe.addEventListener('click', salmonfilletstep1);
 }
 
 function crepeseventlistener() {
-  DOMSelectors.crepesrecipe = document.querySelector('.crepesrecipe')
-  DOMSelectors.crepesrecipe.addEventListener('click',crepestep1)
+  DOMSelectors.crepesrecipe = document.querySelector('.crepesrecipe');
+  DOMSelectors.crepesrecipe.addEventListener('click', crepestep1);
 }
 
 function butteredlobstereventlistener() {
-  DOMSelectors.butteredlobsterrecipe = document.querySelector('.butteredlobsterrecipe')
-  DOMSelectors.butteredlobsterrecipe.addEventListener('click',butteredlobsterstep1)
+  DOMSelectors.butteredlobsterrecipe = document.querySelector('.butteredlobsterrecipe');
+  DOMSelectors.butteredlobsterrecipe.addEventListener('click', butteredlobsterstep1);
 }
 
 function rackoflambeventlistener() {
-  DOMSelectors.rackoflambrecipe = document.querySelector('.rackoflambrecipe')
-  DOMSelectors.rackoflambrecipe.addEventListener('click',rackoflambstep1)
+  DOMSelectors.rackoflambrecipe = document.querySelector('.rackoflambrecipe');
+  DOMSelectors.rackoflambrecipe.addEventListener('click', rackoflambstep1);
 }
 
 function macaroonseventlistener() {
-  DOMSelectors.macaroonsrecipe = document.querySelector('.macaroonsrecipe')
-  DOMSelectors.macaroonsrecipe.addEventListener('click',macaroonstep1)
+  DOMSelectors.macaroonsrecipe = document.querySelector('.macaroonsrecipe');
+  DOMSelectors.macaroonsrecipe.addEventListener('click', macaroonstep1);
 }
 
 function mangocheesecakeeventlistener() {
-  DOMSelectors.mangocheesecakerecipe = document.querySelector('.mangocheesecakerecipe')
-  DOMSelectors.mangocheesecakerecipe.addEventListener('click',mangocheesecakestep1)
+  DOMSelectors.mangocheesecakerecipe = document.querySelector('.mangocheesecakerecipe');
+  DOMSelectors.mangocheesecakerecipe.addEventListener('click', mangocheesecakestep1);
 }
 
 function pastaeventlistener() {
-  DOMSelectors.pastarecipe = document.querySelector('.pastarecipe')
-  DOMSelectors.pastarecipe.addEventListener('click',pastastep1)
+  DOMSelectors.pastarecipe = document.querySelector('.pastarecipe');
+  DOMSelectors.pastarecipe.addEventListener('click', pastastep1);
 }
 
 function wagyueventlistener() {
-  DOMSelectors.wagyurecipe = document.querySelector('.wagyurecipe')
-  DOMSelectors.wagyurecipe.addEventListener('click',wagyustep1)
+  DOMSelectors.wagyurecipe = document.querySelector('.wagyurecipe');
+  DOMSelectors.wagyurecipe.addEventListener('click', wagyustep1);
+}
+
+function wrongsparklingwaterchoice() {
+  clearHTML()
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "card">
+    <h2>Try again...</h2>
+    <button class = "backtosparklingwateringredients">Back to recipe</button>
+    </div>`
+  )
+  DOMSelectors.backtosparklingwateringredients = document.querySelector('.backtosparklingwateringredients')
+  DOMSelectors.backtosparklingwateringredients.addEventListener('click', sparklingwateringredients)
 }
 
 function sparklingwateringredients() {
   clearHTML();
   DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
-    `<div class = "card">
-    <h1>Sparkling Water</h1>
-    <h2>Ingredients:</h2>
-    <h4>Sparkling Water</h4>
-    <h4>Crushed Ice</h4>
-    <button class= "sparklingwaterskipbutton">Skip</button>
+    `<div class="card">
+      <h1>Sparkling Water</h1>
+      <h2>Ingredients:</h2>
+      <h4>Sparkling Water</h4>
+      <h4>Crushed Ice</h4>
+      <button class="sparklingwaterskipbutton">Skip</button>
     </div>`
   );
-  DOMSelectors.sparklingwaterskipbutton = document.querySelector('.sparklingwaterskipbutton')
-  DOMSelectors.sparklingwaterskipbutton.addEventListener('click', sparklingwaterquestions)
-}
-
-let sparklingwaterdrink = null 
-let sparklingwaterice = null 
-
-function rightsparklingwaterchoices() {
-  return(
-    sparklingwaterdrink === 'Sparkling Water' &&
-    sparklingwaterice === 'Crushed Ice'
-  )
+  DOMSelectors.sparklingwaterskipbutton = document.querySelector('.sparklingwaterskipbutton');
+  DOMSelectors.sparklingwaterskipbutton.addEventListener('click', sparklingwaterquestions);
 }
 
 function sparklingwaterquestions() {
-  clearHTML()
+  clearHTML();
   DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
-    `<div class = "card">
-    <h4>What drink do you get?</h4>
-    <button class = "sparklingwaterdrink">Sparkling Water</button>
-    <button class = "sparklingwaterdrink">Water</button>
-    <button class = "sparklingwaterdrink">Tea</button>
-    <h4>What kind of ice?</h4>
-    <button class = "sparklingwaterice">Cubed Ice</button>
-    <button class = "sparklingwaterice">Ice Pellets</button>
-    <button class = "sparklingwaterice">Crushed Ice</button>
-    <h5><button class = "submitsparklingwater">Submit Dish</button></h5>
+    `<div class="question">
+      <h4>What drink do you get?</h4>
+      <button class="sparklingwater">Sparkling Water</button>
+      <button class="notsparklingwater">Water</button>
+      <button class="notsparklingwater">Tea</button>
     </div>`
-    )
+  );
 
-  DOMSelectors.submitsparklingwater = document.querySelector('.submitsparklingwater')
-  DOMSelectors.submitsparklingwater.addEventListener('click', () => {
-    if (rightsparklingwaterchoices()) {
-      clearHTML()
-      DOMSelectors.cardcontainer.insertAdjacentHTML(
-        'beforeend', 
-        `<div class = "card">
-        <h1>Correct!</h1>
-        <button class = "doneicecream">Pick your next order</button>
+  DOMSelectors.sparklingwater = document.querySelector('.sparklingwater');
+  DOMSelectors.sparklingwater.addEventListener('click', () => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class="question">
+        <h4>What kind of ice?</h4>
+        <button class="crushedice">Crushed Ice</button>
+        <button class="notcrushedice">Cubed Ice</button>
+        <button class="notcrushedice">Ice Pellets</button>
       </div>`
-      )
-      DOMSelectors.doneicecream = document.querySelector('.doneicecream');
-      DOMSelectors.doneicecream.addEventListener('click', () => makeacard(fooditem));
-    } else {
-      clearHTML();
+    );
+    DOMSelectors.crushedice = document.querySelector('.crushedice');
+    DOMSelectors.crushedice.addEventListener('click', () => {
       DOMSelectors.cardcontainer.insertAdjacentHTML(
         'beforeend',
-        `<div class = "card">
-          <h1>Try again...</h1>
-          <button class = "wrongsparklingwater">Back to the recipe</button>
+        `<div class="question">
+          <h5><button class="submitsparklingwater">Submit Dish</button></h5>
         </div>`
       );
-      DOMSelectors.wrongsparklingwater = document.querySelector('.wrongsparklingwater');
-      DOMSelectors.wrongsparklingwater.addEventListener('click', () => makeacard(fooditem));
-      //put this back to sparklingwateringredients when the wrong/correct card thing is fixed
-    }
-  }
-)}
+      DOMSelectors.submitsparklingwater = document.querySelector('.submitsparklingwater');
+      DOMSelectors.submitsparklingwater.addEventListener('click', () => {
+        makeacard(fooditem);
+      });
+    });
+    DOMSelectors.notcrushedice = document.querySelectorAll('.notcrushedice');
+    DOMSelectors.notcrushedice.forEach((button) => {
+      button.addEventListener('click', () => {
+        wrongsparklingwaterchoice()
+      });
+    });
+  });
+  DOMSelectors.notsparklingwater = document.querySelectorAll('.notsparklingwater');
+  DOMSelectors.notsparklingwater.forEach((button) => {
+    button.addEventListener('click', () => {
+      wrongsparklingwaterchoice()
+    });
+  });
+}
 
 function icecreamingredients() {
   clearHTML();
   DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
-    `<div class = "card">
-    <h1>Ice Cream</h1>
-    <h2>Ingredients:</h2>
-    <h4>2 Scoops of Matcha Ice Cream</h4>
-    <h4>Whipped Cream</h4>
-    <h4>Maraschino Cherries</h4>
-    <button class = "icecreamskipbutton">Skip</button>
+    `<div class="card">
+      <h1>Ice Cream</h1>
+      <h2>Ingredients:</h2>
+      <h4>2 Scoops of Matcha Ice Cream</h4>
+      <h4>Whipped Cream</h4>
+      <h4>Maraschino Cherries</h4>
+      <button class="icecreamskipbutton">Skip</button>
     </div>`
   );
   DOMSelectors.icecreamskipbutton = document.querySelector('.icecreamskipbutton');
   DOMSelectors.icecreamskipbutton.addEventListener('click', icecreamquestions);
 }
 
-let icecreamflavor = null;
-let icecreamscoops = null;
-let icecreamsprinkles = null;
-let icecreamwhippedcream = null;
-let icecreammaraschinocherries = null;
-
-function righticecreamchoices() {
-  return (
-    icecreamflavor === 'Matcha' &&
-    icecreamscoops === 'Two scoops' &&
-    icecreamsprinkles === 'No' &&
-    icecreamwhippedcream === 'Yes' &&
-    icecreammaraschinocherries === 'Yes'
-  );
-}
-
 function icecreamquestions() {
   clearHTML();
   DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
-    `<div class = "card">
+    `<div class="question">
       <h4>What flavor of ice cream do you get?</h4>
-      <button class = "icecreamflavor" >Vanilla Bean</button>
-      <button class = "icecreamflavor" >Chocolate</button>
-      <button class = "icecreamflavor" >Matcha</button>
-      <h4>How many scoops of ice cream?</h4>
-      <button class = "icecreamscoops" >One scoop</button>
-      <button class = "icecreamscoops" >Two scoops</button>
-      <button class = "icecreamscoops" >Three scoops</button>
-      <h4>Do you put sprinkles?</h4>
-      <button class = "icecreamsprinkles" >Yes</button>
-      <button class = "icecreamsprinkles" >No</button>
-      <h4>Do you put whipped cream?</h4>
-      <button class = "icecreamwhippedcream" >Yes</button>
-      <button class = "icecreamwhippedcream" >No</button>
-      <h4>Do you add Maraschino Cherries?</h4>
-      <button class = "icecreammaraschinocherries" >Yes</button>
-      <button class = "icecreammaraschinocherries" >No</button>
-      <h5><button class = "submiticecream">Submit Dish</button></h5>
+      <button class="wrongicecreamflavor">Vanilla Bean</button>
+      <button class="wrongicecreamflavor">Chocolate</button>
+      <button class="righticecreamflavor">Matcha</button>
     </div>`
   );
-
-  DOMSelectors.submiticecreamButton = document.querySelector('.submiticecream');
-  DOMSelectors.submiticecreamButton.addEventListener('click', () => {
-    if (righticecreamchoices()) {
+  DOMSelectors.righticecreamflavor = document.querySelector('.righticecreamflavor');
+  DOMSelectors.righticecreamflavor.addEventListener('click', () => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class="question">
+        <h4>How many scoops of ice cream?</h4>
+        <button class="wrongicecreamscoops">One scoop</button>
+        <button class="righticecreamscoops">Two scoops</button>
+        <button class="wrongicecreamscoops">Three scoops</button>
+      </div>`
+    );
+    DOMSelectors.righticecreamscoops = document.querySelector('.righticecreamscoops');
+    DOMSelectors.righticecreamscoops.addEventListener('click', () => {
+      DOMSelectors.cardcontainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class="question">
+          <h4>Do you put sprinkles?</h4>
+          <button class="wrongicecreamsprinkles">Yes</button>
+          <button class="righticecreamsprinkles">No</button>
+        </div>`
+      );
+      DOMSelectors.righticecreamsprinkles = document.querySelector('.righticecreamsprinkles');
+      DOMSelectors.righticecreamsprinkles.addEventListener('click', () => {
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class="question">
+            <h4>Do you put whipped cream?</h4>
+            <button class="righticecreamwhippedcream">Yes</button>
+            <button class="wrongicecreamwhippedcream">No</button>
+          </div>`
+        );
+        DOMSelectors.righticecreamwhippedcream = document.querySelector('.righticecreamwhippedcream');
+        DOMSelectors.righticecreamwhippedcream.addEventListener('click', () => {
+          DOMSelectors.cardcontainer.insertAdjacentHTML(
+            'beforeend',
+            `<div class="question">
+              <h4>Do you add Maraschino Cherries?</h4>
+              <button class="righticecreammaraschinocherries">Yes</button>
+              <button class="wrongicecreammaraschinocherries">No</button>
+            </div>`
+          );
+          DOMSelectors.righticecreammaraschinocherries = document.querySelector('.righticecreammaraschinocherries');
+          DOMSelectors.righticecreammaraschinocherries.addEventListener('click', () => {
+            DOMSelectors.cardcontainer.insertAdjacentHTML(
+              'beforeend',
+              `<button class = submiticecream>Submit Dish</button>`
+            );
+            DOMSelectors.submiticecream = document.querySelector('.submiticecream');
+            DOMSelectors.submiticecream.addEventListener('click', () => {
+              makeacard(fooditem);
+            });
+          });
+          DOMSelectors.wrongicecreammaraschinocherries = document.querySelectorAll('.wrongicecreammaraschinocherries');
+          DOMSelectors.wrongicecreammaraschinocherries.forEach((button) => {
+            button.addEventListener('click', () => {
+              clearHTML();
+              DOMSelectors.cardcontainer.insertAdjacentHTML(
+                'beforeend',
+                `<div class="card">
+                  <h2>Try again...</h2>
+                  <button class="backtoicecreamrecipe">Back to recipe</button>
+                </div>`
+              );
+              DOMSelectors.backtoicecreamrecipe = document.querySelector('.backtoicecreamrecipe');
+              DOMSelectors.backtoicecreamrecipe.addEventListener('click', () => {
+                icecreamingredients();
+              });
+            });
+          });
+        });
+        DOMSelectors.wrongicecreamwhippedcream = document.querySelectorAll('.wrongicecreamwhippedcream');
+        DOMSelectors.wrongicecreamwhippedcream.forEach((button) => {
+          button.addEventListener('click', () => {
+            clearHTML();
+            DOMSelectors.cardcontainer.insertAdjacentHTML(
+              'beforeend',
+              `<div class="card">
+                <h2>Try again...</h2>
+                <button class="backtoicecreamrecipe">Back to recipe</button>
+              </div>`
+            );
+            DOMSelectors.backtoicecreamrecipe = document.querySelector('.backtoicecreamrecipe');
+            DOMSelectors.backtoicecreamrecipe.addEventListener('click', () => {
+              icecreamingredients();
+            });
+          });
+        });
+      });
+      DOMSelectors.wrongicecreamsprinkles = document.querySelectorAll('.wrongicecreamsprinkles');
+      DOMSelectors.wrongicecreamsprinkles.forEach((button) => {
+        button.addEventListener('click', () => {
+          clearHTML();
+          DOMSelectors.cardcontainer.insertAdjacentHTML(
+            'beforeend',
+            `<div class="card">
+              <h2>Try again...</h2>
+              <button class="backtoicecreamrecipe">Back to recipe</button>
+            </div>`
+          );
+          DOMSelectors.backtoicecreamrecipe = document.querySelector('.backtoicecreamrecipe');
+          DOMSelectors.backtoicecreamrecipe.addEventListener('click', () => {
+            icecreamingredients();
+          });
+        });
+      });
+    });
+    DOMSelectors.wrongicecreamscoops = document.querySelectorAll('.wrongicecreamscoops');
+    DOMSelectors.wrongicecreamscoops.forEach((button) => {
+      button.addEventListener('click', () => {
+        clearHTML();
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class="card">
+            <h2>Try again...</h2>
+            <button class="backtoicecreamrecipe">Back to recipe</button>
+          </div>`
+        );
+        DOMSelectors.backtoicecreamrecipe = document.querySelector('.backtoicecreamrecipe');
+        DOMSelectors.backtoicecreamrecipe.addEventListener('click', () => {
+          icecreamingredients();
+        });
+      });
+    });
+  });
+  DOMSelectors.wrongicecreamflavor = document.querySelectorAll('.wrongicecreamflavor');
+  DOMSelectors.wrongicecreamflavor.forEach((button) => {
+    button.addEventListener('click', () => {
       clearHTML();
       DOMSelectors.cardcontainer.insertAdjacentHTML(
         'beforeend',
-        `<div class = "card">
-          <h1>Correct!</h1>
-          <button class = "doneicecream">Pick your next order</button>
+        `<div class="card">
+          <h2>Try again...</h2>
+          <button class="backtoicecreamrecipe">Back to recipe</button>
         </div>`
       );
-      DOMSelectors.doneicecream = document.querySelector('.doneicecream');
-      DOMSelectors.doneicecream.addEventListener('click', () => makeacard(fooditem));
-    } else {
-      clearHTML();
-      DOMSelectors.cardcontainer.insertAdjacentHTML(
-        'beforeend',
-        `<div class = "card">
-          <h1>Try again...</h1>
-          <button class = "wrongicecream">Back to the recipe</button>
-        </div>`
-      );
-      DOMSelectors.wrongicecream = document.querySelector('.wrongicecream');
-      DOMSelectors.wrongicecream.addEventListener('click', () => makeacard(fooditem));
-      //put this back to icecreamingredients when the error/correct card thing is fixed
-    }
+      DOMSelectors.backtoicecreamrecipe = document.querySelector('.backtoicecreamrecipe');
+      DOMSelectors.backtoicecreamrecipe.addEventListener('click', () => {
+        icecreamingredients();
+      });
+    });
   });
 }
 
@@ -302,18 +391,6 @@ function tomatosoupstep1(){
   )
   DOMSelectors.tomatosoupstep1skipbutton = document.querySelector('.tomatosoupstep1skipbutton')
   DOMSelectors.tomatosoupstep1skipbutton.addEventListener('click',tomatosoupstep1questions)
-}
-
-let butterquantity = null;
-let tomatosouponioncut = null; 
-let tomatosoupgarlicquantity = null
-
-function righttomatosoupstep1choices() {
-  return(
-    butterquantity === '1/2 stick' &&
-    tomatosouponioncut === 'Diced' &&
-    tomatosoupgarlicquantity === '3 Cloves'
-  )
 }
 
 function tomatosoupstep1questions() {
@@ -367,7 +444,6 @@ function tomatosoupstep1questions() {
     }
   });
 }
-
 function tomatosoupstep2() {
   clearHTML()
   DOMSelectors.cardcontainer.insertAdjacentHTML(
@@ -382,17 +458,6 @@ function tomatosoupstep2() {
   )
   DOMSelectors.tomatosoupstep2skipbutton = document.querySelector('.tomatosoupstep2skipbutton')
   DOMSelectors.tomatosoupstep2skipbutton.addEventListener('click', tomatosoupstep2questions)
-}
-
-let tomatosouptomatoingredient = null;
-let tomatosoupseasonings = null; 
-
-function righttomatosoupstep2choices() {
-  return(
-    tomatosouptomatoingredient === 'Crushed Tomatoes' &&
-    tomatosoupseasonings === 'idk yet'
-    //change this 
-  )
 }
 
 function tomatosoupstep2questions() {
@@ -452,19 +517,6 @@ function tomatosoupstep3(){
   )
   DOMSelectors.tomatosoupstep3skipbutton = document.querySelector('.tomatosoupstep3skipbutton')
   DOMSelectors.tomatosoupstep3skipbutton.addEventListener('click', tomatosoupstep3questions)
-}
-
-let tomatosoupdairyproduct = null
-let tomatosoupcheese = null 
-let tomatosoupsimmertime = null 
-
-function righttomatosoupstep3choices() {
-  return(
-    tomatosoupdairyproduct === 'Heavy Cream' &&
-    tomatosoupcheese === 'Parmesan' &&
-    tomatosoupsimmertime === '3 minutes'
-    //change this 
-  )
 }
 
 function tomatosoupstep3questions() {
@@ -533,15 +585,6 @@ function tomatosoupstep4(){
   )
   DOMSelectors.tomatosoupstep4skipbutton = document.querySelector('.tomatosoupstep4skipbutton')
   DOMSelectors.tomatosoupstep4skipbutton.addEventListener('click', tomatosoupstep4questions)
-}
-
-let tomatosoupfinalseasonings = null
-
-function righttomatosoupstep4choices() {
-  return(
-    tomatosoupfinalseasonings === 'not finished' 
-    //change this 
-  )
 }
 
 function tomatosoupstep4questions(){

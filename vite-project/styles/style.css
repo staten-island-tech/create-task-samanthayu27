@@ -66,8 +66,14 @@ button:hover {
 .recipe{
   padding: 2%;
   margin: 2rem 2rem;
-  height: 400px;
+  height: 300px;
   width: 300px;
   border-radius: 12px;
+  background-color: green;
+
 }
 
+.question{
+  background-color: red;
+  width: 1200px
+}
