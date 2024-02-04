@@ -9,15 +9,6 @@ const DOMSelectors = {
   tomatosouprecipe: document.querySelector('.tomatosouprecipe'),
   greeksaladrecipe: document.querySelector('.greeksaladrecipe'),
   shrimpcocktailrecipe: document.querySelector('.shrimpcocktailrecipe'),
-  sushiplatterrecipe: document.querySelector('.sushiplatterrecipe'),
-  salmonfilletrecipe: document.querySelector('.salmonfilletrecipe'),
-  crepesrecipe: document.querySelector('.crepesrecipe'),
-  butteredlobsterrecipe: document.querySelector('.butteredlobsterrecipe'),
-  rackoflambrecipe: document.querySelector('.rackoflambrecipe'),
-  mangocheesecakerecipe: document.querySelector('.mangocheesecakerecipe'),
-  macaroonsrecipe: document.querySelector('.macaroonsrecipe'),
-  pastarecipe: document.querySelector('.pastarecipe'),
-  wagyurecipe: document.querySelector('.wagyurecipe'),
   checkbutton: document.querySelector('.checkbutton'),
 };
 
@@ -44,15 +35,6 @@ function makeacard(arr) {
   tomatosoupeventlistener();
   greeksaladeventlistener();
   shrimpcocktaileventlistener();
-  sushiplattereventlistener();
-  salmonfilleteventlistener();
-  crepeseventlistener();
-  butteredlobstereventlistener();
-  rackoflambeventlistener();
-  macaroonseventlistener();
-  mangocheesecakeeventlistener();
-  pastaeventlistener();
-  wagyueventlistener();
 }
 
 function sparklingwatereventlistener() {
@@ -78,51 +60,6 @@ function greeksaladeventlistener() {
 function shrimpcocktaileventlistener() {
   DOMSelectors.shrimpcocktailrecipe = document.querySelector('.shrimpcocktailrecipe');
   DOMSelectors.shrimpcocktailrecipe.addEventListener('click', shrimpcocktailstep1);
-}
-
-function sushiplattereventlistener() {
-  DOMSelectors.sushiplatterrecipe = document.querySelector('.sushiplatterrecipe');
-  DOMSelectors.sushiplatterrecipe.addEventListener('click', sushiplatterstep1);
-}
-
-function salmonfilleteventlistener() {
-  DOMSelectors.salmonfilletrecipe = document.querySelector('.salmonfilletrecipe');
-  DOMSelectors.salmonfilletrecipe.addEventListener('click', salmonfilletstep1);
-}
-
-function crepeseventlistener() {
-  DOMSelectors.crepesrecipe = document.querySelector('.crepesrecipe');
-  DOMSelectors.crepesrecipe.addEventListener('click', crepestep1);
-}
-
-function butteredlobstereventlistener() {
-  DOMSelectors.butteredlobsterrecipe = document.querySelector('.butteredlobsterrecipe');
-  DOMSelectors.butteredlobsterrecipe.addEventListener('click', butteredlobsterstep1);
-}
-
-function rackoflambeventlistener() {
-  DOMSelectors.rackoflambrecipe = document.querySelector('.rackoflambrecipe');
-  DOMSelectors.rackoflambrecipe.addEventListener('click', rackoflambstep1);
-}
-
-function macaroonseventlistener() {
-  DOMSelectors.macaroonsrecipe = document.querySelector('.macaroonsrecipe');
-  DOMSelectors.macaroonsrecipe.addEventListener('click', macaroonstep1);
-}
-
-function mangocheesecakeeventlistener() {
-  DOMSelectors.mangocheesecakerecipe = document.querySelector('.mangocheesecakerecipe');
-  DOMSelectors.mangocheesecakerecipe.addEventListener('click', mangocheesecakestep1);
-}
-
-function pastaeventlistener() {
-  DOMSelectors.pastarecipe = document.querySelector('.pastarecipe');
-  DOMSelectors.pastarecipe.addEventListener('click', pastastep1);
-}
-
-function wagyueventlistener() {
-  DOMSelectors.wagyurecipe = document.querySelector('.wagyurecipe');
-  DOMSelectors.wagyurecipe.addEventListener('click', wagyustep1);
 }
 
 function wrongsparklingwaterchoice() {
@@ -890,12 +827,12 @@ function greeksaladstep2questions() {
             DOMSelectors.greekblackpepper.addEventListener('click', () => {
               DOMSelectors.cardcontainer.insertAdjacentHTML(
                 'beforeend',
-                `<div class = "question>
+                `<div class = "question">
                 <h5><button class = "submitgreeksaladstep2">Next Step</button></h5>
                 </div>`
               )
               DOMSelectors.submitgreeksaladstep2 = document.querySelector('.submitgreeksaladstep2')
-              DOMSelectors.submitgreeksaladstep2.addEventListener('click', greeksaladstep3())
+              DOMSelectors.submitgreeksaladstep2.addEventListener('click', greeksaladstep3)
             })
             DOMSelectors.notgreekblackpepper = document.querySelectorAll('.notgreekblackpepper')
             DOMSelectors.notgreekblackpepper.forEach((button) => {
@@ -940,7 +877,6 @@ function greeksaladstep2questions() {
   })
 }
 
-
 function greeksaladstep3() {
   clearHTML()
   DOMSelectors.cardcontainer.insertAdjacentHTML(
@@ -950,47 +886,346 @@ function greeksaladstep3() {
     <h4>Toss everything together</h4>
     <h4>Garnish with feta cheese and mint leaves</h4>
     <button class = "greeksaladstep3skipbutton">Skip</button>
-    </div>`
-    //make this a little better 
+    </div>` 
   )
   DOMSelectors.greeksaladstep3skipbutton = document.querySelector('.greeksaladstep3skipbutton')
   DOMSelectors.greeksaladstep3skipbutton.addEventListener('click', greeksaladstep3questions)
+}
+
+function wronggreeksaladstep3choice() {
+  clearHTML()
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "question">
+    <h2>Try again...</h2>
+    <button class = "backtogreeksaladstep3">Back to step 3</button>
+    </div>`
+  )
+  DOMSelectors.backtogreeksaladstep3 = document.querySelector('.backtogreeksaladstep3')
+  DOMSelectors.backtogreeksaladstep3.addEventListener('click', greeksaladstep3)
 }
 
 function greeksaladstep3questions() {
   clearHTML()
   DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
-    `<div class = "card">
+    `<div class = "question">
+    <h2>How do you bring all of the ingredients together?</h2>
+    <button class = "nottoss">Mix</button>
+    <button class = "toss">Toss</button>
+    <button class = "nottoss">Blend</button>
     </div>`
   )
+  DOMSelectors.toss = document.querySelector('.toss')
+  DOMSelectors.toss.addEventListener('click', () => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class = "question">
+      <h2>What cheese do you garnish with?</h2>
+      <button class = "feta">Feta</button>
+      <button class = "notfeta">Cheddar</button>
+      <button class = "notfeta">Swiss</button>
+      <button class = "notfeta">Mozzerella</button>
+      </div>`
+    )
+    DOMSelectors.feta = document.querySelector('.feta')
+    DOMSelectors.feta.addEventListener('click', () => {
+      DOMSelectors.cardcontainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class = "question">
+        <h2>What herb do you garnish with?</h2>
+        <button class = "notmint">Basil</button>
+        <button class = "notmint">Thyme</button>
+        <button class = "notmint">Oregano</button>
+        <button class = "mint">Mint</button>
+        <button class = "notmint">Dill</button>
+        </div>`
+      )
+      DOMSelectors.mint = document.querySelector('.mint')
+      DOMSelectors.mint.addEventListener('click', () => {
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class = "question">
+          <h5><button class = "submitgreeksaladstep3">Submit Dish</button></h5>
+          </div>`
+        )
+        DOMSelectors.submitgreeksaladstep3 = document.querySelector('.submitgreeksaladstep3')
+        DOMSelectors.submitgreeksaladstep3.addEventListener('click', makeacard(fooditem))
+      })
+      DOMSelectors.notmint = document.querySelectorAll('.notmint')
+      DOMSelectors.notmint.forEach((button) => {
+        button.addEventListener('click', () => {
+          wronggreeksaladstep3choice()
+        })
+      })
+    })
+    DOMSelectors.notfeta = document.querySelectorAll('.notfeta')
+    DOMSelectors.notfeta.forEach((button) => {
+      button.addEventListener('click', () => {
+        wronggreeksaladstep3choice()
+      })
+    })
+  })
+  DOMSelectors.nottoss = document.querySelectorAll('.nottoss')
+  DOMSelectors.nottoss.forEach((button) => {
+    button.addEventListener('click', () => {
+      wronggreeksaladstep3choice()
+    })
+  })
 }
 
 function shrimpcocktailstep1() {
-  clearHTML()
+  clearHTML();
   DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Shrimp Cocktail</h1>
-  <h2>Step 1:</h2>
-  <h4>Combine 6 cups of water with salt, sugar, onion, half a lemon, and 5 sprigs of parsley in a pot</h4>
-  </div>`
-  )
+    'beforeend',
+    `<div class = "card">
+      <h1>Shrimp Cocktail</h1>
+      <h2>Step 1:</h2>
+      <h4>Combine 6 cups of water with salt, sugar, onion, half a lemon, and 5 sprigs of parsley in a pot</h4>
+      <button class = "shrimpcocktailstep1skipbutton">Skip</button>
+    </div>`
+  );
+  DOMSelectors.shrimpcocktailstep1skipbutton = document.querySelector('.shrimpcocktailstep1skipbutton');
+  DOMSelectors.shrimpcocktailstep1skipbutton.addEventListener('click', shrimpcocktailstep1questions);
+}
+
+function wrongshrimpcocktailstep1choices() {
+  clearHTML();
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "card">
+      <h2>Try again...</h2>
+      <button class = "backtoshrimpcocktailstep1">Back to step 1</button>
+    </div>`
+  );
+  DOMSelectors.backtoshrimpcocktailstep1 = document.querySelector('.backtoshrimpcocktailstep1');
+  DOMSelectors.backtoshrimpcocktailstep1.addEventListener('click', shrimpcocktailstep1);
+}
+
+function shrimpcocktailstep1questions() {
+  clearHTML();
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "question">
+      <h2>How much water do you add?</h2>
+      <button class = "notsixcups">2 cups</button>
+      <button class = "notsixcups">3 cups</button>
+      <button class = "notsixcups">4 cups</button>
+      <button class = "notsixcups">5 cups</button>
+      <button class = "sixcups">6 cups</button>
+      <button class = "notsixcups">7 cups</button>
+    </div>`
+  );
+  DOMSelectors.sixcups = document.querySelector('.sixcups');
+  DOMSelectors.sixcups.addEventListener('click', () => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class = "question">
+        <h2>Do you add sugar, salt, none, or both?</h2>
+        <button class = "notboth">Sugar</button>
+        <button class = "notboth">Salt</button>
+        <button class = "notboth">None</button>
+        <button class = "both">Both</button>
+      </div>`
+    );
+    DOMSelectors.both = document.querySelector('.both');
+    DOMSelectors.both.addEventListener('click', () => {
+      DOMSelectors.cardcontainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class = "question">
+          <h2>What do you add next?</h2>
+          <button class = "notonion">Garlic</button>
+          <button class = "onion">Onion</button>
+          <button class = "notonion">Ginger</button>
+        </div>`
+      );
+      DOMSelectors.onion = document.querySelector('.onion');
+      DOMSelectors.onion.addEventListener('click', () => {
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class = "question">
+            <h2>How much lemon?</h2>
+            <button class = "nothalflemon">No lemon</button>
+            <button class = "halflemon">Half a lemon</button>
+            <button class = "nothalflemon">1 lemon</button>
+            <button class = "nothalflemon">2 lemons</button>
+          </div>`
+        );
+        DOMSelectors.halflemon = document.querySelector('.halflemon');
+        DOMSelectors.halflemon.addEventListener('click', () => {
+          DOMSelectors.cardcontainer.insertAdjacentHTML(
+            'beforeend',
+            `<div class = "question">
+              <h2>What herb do you add?</h2>
+              <button class = "notparsley">Basil</button>
+              <button class = "notparsley">Mint</button>
+              <button class = "notparsley">Oregano</button>
+              <button class = "parsley">Parsley</button>
+            </div>`
+          );
+          DOMSelectors.parsley = document.querySelector('.parsley');
+          DOMSelectors.parsley.addEventListener('click', () => {
+            DOMSelectors.cardcontainer.insertAdjacentHTML(
+              'beforeend',
+              `<div class = "question">
+                <h2>How many sprig(s) of parsley?</h2>
+                <button class = "notfivesprigs">1 sprig</button>
+                <button class = "notfivesprigs">2 sprigs</button>
+                <button class = "notfivesprigs">3 sprigs</button>
+                <button class = "notfivesprigs">4 sprigs</button>
+                <button class = "fivesprigs">5 sprigs</button>
+                <button class = "notfivesprigs">6 sprigs</button>
+                <button class = "notfivesprigs">7 sprigs</button>
+              </div>`
+            );
+            DOMSelectors.fivesprigs = document.querySelector('.fivesprigs');
+            DOMSelectors.fivesprigs.addEventListener('click', () => {
+              DOMSelectors.cardcontainer.insertAdjacentHTML(
+                'beforeend',
+                `<div class = "question">
+                  <h5><button class = "submitshrimpcocktailstep1">Next step</button></h5>
+                </div>`
+              );
+              DOMSelectors.submitshrimpcocktailstep1 = document.querySelector('.submitshrimpcocktailstep1');
+              DOMSelectors.submitshrimpcocktailstep1.addEventListener('click', shrimpcocktailstep2);
+            });
+            DOMSelectors.notfivesprigs = document.querySelectorAll('.notfivesprigs');
+            DOMSelectors.notfivesprigs.forEach((button) => {
+              button.addEventListener('click', () => {
+                wrongshrimpcocktailstep1choices();
+              });
+            });
+          });
+          DOMSelectors.notparsley = document.querySelectorAll('.notparsley');
+          DOMSelectors.notparsley.forEach((button) => {
+            button.addEventListener('click', () => {
+              wrongshrimpcocktailstep1choices();
+            });
+          });
+        });
+        DOMSelectors.nothalflemon = document.querySelectorAll('.nothalflemon');
+        DOMSelectors.nothalflemon.forEach((button) => {
+          button.addEventListener('click', () => {
+            wrongshrimpcocktailstep1choices();
+          });
+        });
+      });
+      DOMSelectors.notonion = document.querySelectorAll('.notonion');
+      DOMSelectors.notonion.forEach((button) => {
+        button.addEventListener('click', () => {
+          wrongshrimpcocktailstep1choices();
+        });
+      });
+    });
+    DOMSelectors.notboth = document.querySelectorAll('.notboth');
+    DOMSelectors.notboth.forEach((button) => {
+      button.addEventListener('click', () => {
+        wrongshrimpcocktailstep1choices();
+      });
+    });
+  });
+  DOMSelectors.notsixcups = document.querySelectorAll('.notsixcups');
+  DOMSelectors.notsixcups.forEach((button) => {
+    button.addEventListener('click', () => {
+      wrongshrimpcocktailstep1choices();
+    });
+  });
 }
 
 function shrimpcocktailstep2() {
-  clearHTML()
+  clearHTML();
   DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend', 
-  `<div class = "card">
-  <h1>Shrimp Cocktail:</h1>
-  <h2>Step 2:</h2>
-  <h4>Unpeel 2lbs of shrimp but leave the tails intact</h4>
-  <h4>Add the shrimp in the mixture and let it sit for 3 minutes</h4>
-  <h4>Remove the shrimp</h4>
-  </div>`
-  )
+    'beforeend',
+    `<div class = "card">
+      <h1>Shrimp Cocktail:</h1>
+      <h2>Step 2:</h2>
+      <h4>Unpeel 2lbs of shrimp but leave the tails on</h4>
+      <h4>Add the shrimp in the mixture and let it sit for 3 minutes, then remove the shrimp</h4>
+      <button class = "shrimpcocktailstep2skipbutton">Skip</button>
+    </div>`
+  );
+  DOMSelectors.shrimpcocktailstep2skipbutton = document.querySelector('.shrimpcocktailstep2skipbutton');
+  DOMSelectors.shrimpcocktailstep2skipbutton.addEventListener('click', shrimpcocktailstep2questions);
 }
+
+function wrongshrimpcocktailstep2choices() {
+  clearHTML();
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "card">
+      <h2>Try again...</h2>
+      <button class = "backtoshrimpcocktailstep2">Back to step 2</button>
+    </div>`
+  );
+  DOMSelectors.backtoshrimpcocktailstep2 = document.querySelector('.backtoshrimpcocktailstep2');
+  DOMSelectors.backtoshrimpcocktailstep2.addEventListener('click', shrimpcocktailstep2);
+}
+
+function shrimpcocktailstep2questions() {
+  clearHTML();
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "question">
+      <h2>How much shrimp do you get?</h2>
+      <button class = "nottwopounds">1/2 lbs</button>
+      <button class = "nottwopounds">1 lbs</button>
+      <button class = "nottwopounds">1 1/2 lbs</button>
+      <button class = "twopounds">2 lbs</button>
+    </div>`
+  );
+  DOMSelectors.twopounds = document.querySelector('.twopounds');
+  DOMSelectors.twopounds.addEventListener('click', () => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class = "question">
+        <h2>Do you leave the tails of the shrimp on or off?</h2>
+        <button class = "on">On</button>
+        <button class = "off">Off</button>
+      </div>`
+    );
+    DOMSelectors.on = document.querySelector('.on');
+    DOMSelectors.on.addEventListener('click', () => {
+      DOMSelectors.cardcontainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class = "question">
+          <h2>How long do you leave the shrimp in the mixture?</h2>
+          <button class = "notshrimpthreeminutes">3 seconds</button>
+          <button class = "shrimpthreeminutes">3 minutes</button>
+          <button class = "notshrimpthreeminutes">30 minutes</button>
+          <button class = "notshrimpthreeminutes">3 hours</button>
+        </div>`
+      );
+      DOMSelectors.shrimpthreeminutes = document.querySelector('.shrimpthreeminutes');
+      DOMSelectors.shrimpthreeminutes.addEventListener('click', () => {
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class = "question">
+            <h5><button class = "submitshrimpcocktailstep2">Next step</button></h5>
+          </div>`
+        );
+        DOMSelectors.submitshrimpcocktailstep2 = document.querySelector('.submitshrimpcocktailstep2');
+        DOMSelectors.submitshrimpcocktailstep2.addEventListener('click', shrimpcocktailstep3);
+      });
+      DOMSelectors.notshrimpthreeminutes = document.querySelectorAll('.notshrimpthreeminutes');
+      DOMSelectors.notshrimpthreeminutes.forEach((button) => {
+        button.addEventListener('click', () => {
+          wrongshrimpcocktailstep2choices();
+        });
+      });
+    });
+    DOMSelectors.off = document.querySelector('.off');
+    DOMSelectors.off.addEventListener('click', () => {
+      wrongshrimpcocktailstep2choices();
+    });
+  });
+  DOMSelectors.nottwopounds = document.querySelectorAll('.nottwopounds');
+  DOMSelectors.nottwopounds.forEach((button) => {
+    button.addEventListener('click', () => {
+      wrongshrimpcocktailstep2choices();
+    });
+  });
+}
+
 
 function shrimpcocktailstep3() {
   clearHTML()
@@ -1000,297 +1235,221 @@ function shrimpcocktailstep3() {
   <h1>Shrimp Cocktail</h1>
   <h2>Step 3:</h2>
   <h2>Sauce:</h2>
-  <h4>Zest a lemon and juice the rest of the lemon</h4>
-  <h4>Add ketchup, horseradish, Worcestershire sauce, Tabasco, chili sauce, and salt</h4>
+  <h4>Add ketchup, horseradish, Worcestershire sauce, Tabasco, and kosher salt</h4>
+  <button class = "shrimpcocktailstep3skipbutton">Skip</button>
   </div>`
   )
+  DOMSelectors.shrimpcocktailstep3skipbutton = document.querySelector('.shrimpcocktailstep3skipbutton')
+  DOMSelectors.shrimpcocktailstep3skipbutton.addEventListener('click', shrimpcocktailstep3questions)
 }
 
-function shrimpcocktialstep4() {
+function wrongshrimpcocktailstep3choices() {
+  clearHTML()
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "card">
+    <h2>Try again...</h2>
+    <button class = "backtoshrimpcocktailstep3">Back to step 3</button>
+    </div>`
+  )
+  DOMSelectors.backtoshrimpcocktailstep3 = document.querySelector('.backtoshrimpcocktailstep3')
+  DOMSelectors.backtoshrimpcocktailstep3.addEventListener('click', shrimpcocktailstep3)
+}
+
+function shrimpcocktailstep3questions() {
+  clearHTML()
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "question">
+    <h2>What condiment sauce do you add?</h2>
+    <button class = "notketchup">Mayo</button>
+    <button class = "notketchup">Dijon Mustard</button>
+    <button class = "ketchup">Ketchup</button>
+    <button class = "notketcup">Relish</button>
+    </div>`
+  )
+  DOMSelectors.ketchup = document.querySelector('.ketchup')
+  DOMSelectors.ketchup.addEventListener('click',() => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class = "question">
+      <h2>What do you add next?</h2>
+      <button class = "nothorseradish">Wasabi</button>
+      <button class = "horseradish">Horseradish</button>
+      <button class = "nothorseradish">Ginger</button>
+      </div>`
+    )
+    DOMSelectors.horseradish = document.querySelector('.horseradish')
+    DOMSelectors.horseradish.addEventListener('click', () => {
+      DOMSelectors.cardcontainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class = "question">
+        <h2>What sauce that has a British county name do you add?</h2>
+        <button class = "notworshirshiresauce">Worcester Sauce</button>
+        <button class = "worshirshiresauce">Worshirshire Sauce</button>
+        <button class = "notworshirshiresauce">Essex Sauce</button>
+        <button class = "notworshirshiresauce">Lancashire Sauce</button>
+        </div>`
+      )
+      DOMSelectors.worshirshiresauce = document.querySelector('.worshirshiresauce')
+      DOMSelectors.worshirshiresauce.addEventListener('click', () => {
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class = "question">
+          <h2>What spicy sauce do you add next?</h2>
+          <button class = "nottabasco">Siracha</button>
+          <button class = "nottabasco">Spicy salsa</button>
+          <button class = "tabasco">Tabasco</button>
+          </div>`
+        )
+        DOMSelectors.tabasco = document.querySelector('.tabasco')
+        DOMSelectors.tabasco.addEventListener('click', () => {
+          DOMSelectors.cardcontainer.insertAdjacentHTML(
+            'beforeend',
+            `<div class = "question">
+            <h2>What salt do you add?</h2>
+            <button class = "notkosher">Smoked Salt</button>
+            <button class = "notkosher">Iodized Salt</button>
+            <button class = "notkosher">Sea Salt</button>
+            <button class = "kosher">Kosher Salt</button>
+            </div>`
+          )
+          DOMSelectors.kosher = document.querySelector('.kosher')
+          DOMSelectors.kosher.addEventListener('click', () => {
+            DOMSelectors.cardcontainer.insertAdjacentHTML(
+              'beforeend',
+              `<div class = "question">
+              <h5><button class = "submitshrimpcocktailstep3">Next step</button></h5>
+              </div>`
+            )
+            DOMSelectors.submitshrimpcocktailstep3 = document.querySelector('.submitshrimpcocktailstep3')
+            DOMSelectors.submitshrimpcocktailstep3.addEventListener('click', shrimpcocktailstep4)
+          })
+          DOMSelectors.notkosher = document.querySelectorAll('.notkosher')
+          DOMSelectors.notkosher.forEach((button) => {
+            button.addEventListener('click', () => {
+              wrongshrimpcocktailstep3choices()
+            })
+          })
+        })
+        DOMSelectors.nottabasco = document.querySelectorAll('.nottabasco')
+        DOMSelectors.nottabasco.forEach((button) => {
+          button.addEventListener('click', () => {
+            wrongshrimpcocktailstep3choices()
+          })
+        })
+      })
+      DOMSelectors.notworshirshiresauce = document.querySelectorAll('.notworshirshiresauce')
+      DOMSelectors.notworshirshiresauce.forEach((button) => {
+        button.addEventListener('click', () => {
+          wrongshrimpcocktailstep3choices()
+        })
+      })
+    })
+    DOMSelectors.nothorseradish = document.querySelectorAll('.nothorseradish')
+    DOMSelectors.nothorseradish.forEach((button) => {
+      button.addEventListener('click', () => {
+        wrongshrimpcocktailstep3choices()
+      })
+    })
+  })
+  DOMSelectors.notketchup = document.querySelectorAll('.notketchup')
+  DOMSelectors.notketchup.forEach((button) => {
+    button.addEventListener('click', () => {
+      wrongshrimpcocktailstep3choices()
+    })
+  })
+}
+
+function shrimpcocktailstep4() {
   clearHTML()
   DOMSelectors.cardcontainer.insertAdjacentHTML(
   'beforeend',
   `<div class = "card">
   <h1>Shrimp Cocktail</h1>
   <h2>Step 4:</h2>
-  <h4>Plate the shrimp in a semi-circle with the sauce in a small dish. Garnish wih lemon wedges and parsley</h4>
+  <h4>Plate the shrimp in a semi-circle with the sauce in a small dish. Garnish wih lemon wedges/h4>
+  <h5><button class = "shrimpcocktailstep4skipbutton">Skip</button></h5>
   </div>`
   )
+  DOMSelectors.shrimpcocktailstep4skipbutton = document.querySelector('.shrimpcocktailstep4skipbutton')
+  DOMSelectors.shrimpcocktailstep4skipbutton.addEventListener('click', shrimpcocktailstep4questions)
 }
 
-function sushiplatterstep1() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Sushi Platter</h1>
-  <h2>Step 1:</h2>
-  <h2>Eel Avocado Roll</h2>
-  </div>`
-  )
-}
-
-function sushiplatterstep2() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Sushi Platter</h1>
-  <h2>Step 2:</h2>
-  <h2>California Roll</h2>
-  </div>`
-  )
-}
-
-function sushiplatterstep3() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Sushi Platter</h1>
-  <h2>Step 3:</h2>
-  <h2>Dragon Roll</h2>
-  </div>`
-  )
-}
-
-function sushiplatterstep4() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Sushi Platter</h1>
-  <h2>Step 4:</h2>
-  <h2>Spicy Tuna Roll</h2>
-  </div>`
-  )
-}
-
-function sushiplatterstep5() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Sushi Platter</h1>
-  <h2>Step 5:</h2>
-  <h2>Cucumber Roll</h2>
-  </div>`
-  )
-}
-
-function sushiplatterstep6() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Sushi Platter</h1>
-  <h2>Step 6:</h2>
-  <h2>Temaki</h2>
-  </div>`
-  )
-}
-
-function sushiplatterstep7() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Sushi Platter</h1>
-  <h2>Step 7:</h2>
-  <h2>Nigiri</h2>
-  </div>`
-  )
-}
-
-function sushiplatterstep8() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Sushi Platter</h1>
-  <h2>Step 8:</h2>
-  <h4>Serve with soy sauce and wasabi</h4>
-  </div>`
-  )
-}
-
-function salmonfilletstep1() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Salmon Fillet</h1>
-  <h2>Step 1:</h2>
-  <h4>Season salmon fillet with salt and pepper</h4>
-  <h4>Cook the fillet on one side for 3 minutes, then flip and cook on that side for 1 minute</h4>
-  </div>`
-  )
-}
-
-function salmonfilletstep2() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Salmon Fillet</h1>
-  <h2>Step 2:</h2>
-  <h4>Add 3 tablespoons of unsalted butter and baste the fillet for 90 seconds</h4>
-  <h4>Flip and baste the other side for 90 seconds</h4>
-  </div>`
-  )
-}
-
-function salmonfilletstep3() {  
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  <h1>Salmon Fillet</h1>
-  <h2>Step 1:</h2>
-  <h4>Plate with lemon wedges and rosemary sprigs</h4>
-  </div>`
-  )
-}
-
-function crepestep1() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  </div>`
-  )
-}
-
-function butteredlobsterstep1() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  </div>`
-  )
-}
-
-function rackoflambstep1() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  </div>`
-  )
-}
-
-function macaroonstep1() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  </div>`
-  )
-}
-
-function mangocheesecakestep1() {
+function wrongshrimpcocktailstep4choices() {
   clearHTML()
   DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
     `<div class = "card">
-    <h1>Mango Cheesecake</h1>
-    <h2>Step 1:</h2>
-    <h4>Crumble 8 ounces of graham crackers in a food processor</h4>
-    <h4>Mix 3tsp of dark brown sugar and 1 stick of softened butter with the crushed graham crackers</h4>
-    <h4>Put the mixture in a pan</h4>
-    <button class = "mangocheesecakestep1skipbutton">Skip</button>
+    <h2>Try again...</h2>
+    <button class = "backtoshrimpcocktailstep4">Back to step 4</button>
     </div>`
   )
-  DOMSelectors.mangocheesecakestep1skipbutton = document.querySelector('.mangocheesecakestep1skipbutton')
-  DOMSelectors.mangocheesecakestep1skipbutton.addEventListener('click', mangocheesecakestep1questions)
+  DOMSelectors.backtoshrimpcocktailstep4 = document.querySelector('.backtoshrimpcocktailstep4')
+  DOMSelectors.backtoshrimpcocktailstep4.addEventListener('click', shrimpcocktailstep4)
 }
 
-function mangocheesecakestep1questions() {
+function shrimpcocktailstep4questions(){
   clearHTML()
   DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
-    `<div class = "card">
+    `<div class = "question">
+    <h2>How do you arrange the shrimp?</h2>
+    <button class = "notsemicircle">In a circle shape</button>
+    <button class = "notsemicircle">In a square shape</button>
+    <button class = "notsemicircle">In a triangle shape</button>
+    <button class = "notsemicircle">In a rectangle shape</button>
+    <button class = "semicircle">In a semi circle shape</button>
     </div>`
   )
-}
-
-function mangocheesecakestep2() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-    'beforeend',
-    `<div class = "card">
-    <button class = "mangocheesecakestep2skipbutton">Skip</button>
-    </div>`
-  )
-  DOMSelectors.mangocheesecakestep2skipbutton = document.querySelector('.mangocheesecakestep2skipbutton')
-  DOMSelectors.mangocheesecakestep2skipbutton.addEventListener('click', mangocheesecakestep2questions)
-}
-
-function mangocheesecakestep2questions() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-    'beforeend',
-    `<div class = "card">
-    </div>`
-  )
-}
-
-function mangocheesecakestep3() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-    'beforeend',
-    `<div class = "card">
-    <button class = "mangocheesecakestep3skipbutton">Skip</button>
-    </div>`
-  )
-  DOMSelectors.mangocheesecakestep3skipbutton = document.querySelector('.mangocheesecakestep3skipbutton')
-  DOMSelectors.mangocheesecakestep3skipbutton.addEventListener('click', mangocheesecakestep3questions)
-}
-
-function mangocheesecakestep3questions() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-    'beforeend',
-    `<div class = "card">
-    </div>`
-  )
-}
-
-function mangocheesecakestep4() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-    'beforeend',
-    `<div class = "card">
-    <button class = "mangocheesecakestep4skipbutton">Skip</button>
-    </div>`
-  )
-  DOMSelectors.mangocheesecakestep4skipbutton = document.querySelector('.mangocheesecakestep4skipbutton')
-  DOMSelectors.mangocheesecakestep4skipbutton.addEventListener('click', mangocheesecakestep4questions)
-}
-
-function mangocheesecakestep4questions() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-    'beforeend',
-    `<div class = "card">
-    </div>`
-  )
-}
-
-function pastastep1() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  </div>`
-  )
-}
-
-function wagyustep1() {
-  clearHTML()
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-  'beforeend',
-  `<div class = "card">
-  </div>`
-  )
+  DOMSelectors.semicircle = document.querySelector('.semicircle')
+  DOMSelectors.semicircle.addEventListener('click', () => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class = "question">
+      <h2>How do you cut the lemon?</h2>
+      <button class = "notwedges">In twists</button>
+      <button class = "notwedges">In round slices</button>
+      <button class = "wedges">In wedges</button>
+      <button class = "notwedges">In quarters</button>
+      <button class = "notwedges">In half</button>
+      </div>`
+    )
+    DOMSelectors.wedges = document.querySelector('.wedges')
+    DOMSelectors.wedges.addEventListener('click', () => {
+      DOMSelectors.cardcontainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class = "question">
+        <h5><button class = "submitshrimpcocktailstep4">Submit dish</button></h5>
+        </div>`
+      )
+      DOMSelectors.submitshrimpcocktailstep4 = document.querySelector('.submitshrimpcocktailstep4')
+      DOMSelectors.submitshrimpcocktailstep4.addEventListener('click', () => {
+        clearHTML()
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class = "congrats">
+          <h2>Congratulations! You sucessfully made shrimp cocktail. The customer raves about how great the dish is!</h2>
+          <button class = "backtomenu">Back to Menu</button>
+          </div>`
+        )
+        DOMSelectors.backtomenu = document.querySelector('.backtomenu')
+        DOMSelectors.backtomenu.addEventListener('click', () => {
+          makeacard(fooditem)
+        })
+      })
+    })
+    DOMSelectors.notwedges = document.querySelectorAll('.notwedges')
+    DOMSelectors.notwedges.forEach((button) => {
+      button.addEventListener('click', () => {
+        wrongshrimpcocktailstep4choices()
+      })
+    })
+  })
+  DOMSelectors.notsemicircle = document.querySelectorAll('.notsemicircle')
+  DOMSelectors.notsemicircle.forEach((button) => {
+    button.addEventListener('click', () => {
+      wrongshrimpcocktailstep4choices()
+    })
+  })
 }
