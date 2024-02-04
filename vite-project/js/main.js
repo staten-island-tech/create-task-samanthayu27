@@ -653,51 +653,293 @@ function tomatosoupstep3questions() {
 
 function greeksaladstep1(){
   clearHTML()
-  DOMSelectors.cardcontainerr.insertAdjacentHTML(
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
     `<div class = "card">
     <h1>Greek Salad</h1>
     <h4>Vegetables: Cucumber, green bell pepper, cherry tomatoes, red onion, olives</h4>
     <button class = "greeksaladstep1skipbutton">Skip</button>
     </div>`
-    //make this a little better 
   )
   DOMSelectors.greeksaladstep1skipbutton = document.querySelector('.greeksaladstep1skipbutton')
   DOMSelectors.greeksaladstep1skipbutton.addEventListener('click', greeksaladstep1questions)
 }
 
-function greeksaladstep1questions() {
-  clearHTML
-  DOMSelectors.cardcontainer.insertAdjacentHTML(
-    'beforeend',
-    `<div class = "card">
-    </div>`
-  )
-}
-
-function greeksaladstep2() {
+function wronggreeksaladstep1choice() {
   clearHTML()
   DOMSelectors.cardcontainer.insertAdjacentHTML(
     'beforeend',
-    `<div class = "card>
-    <h1>Greek Salad</h1>
-    <h4>Dressing: Extra-Virgin Olive Oil, Red Wine Vinegar, dried oregano, Dijon Mustard, Sea Salt, Black Pepper</h4>
-    <button class = "greeksaladstep2skipbutton">Skip</button>
+    `<div class = "card"> 
+    <h2>Try again...</h2>
+    <button class = "backtogreeksaladstep1">Back to step 1 </button>
     </div>`
-    //make this a little better 
   )
-  DOMSelectors.greeksaladstep2skipbutton = document.querySelector('.greeksaladstep2skipbutton')
-  DOMSelectors.greeksaladstep2skipbutton.addEventListener('click', greeksaladstep2questions)
+  DOMSelectors.backtogreeksaladstep1 = document.querySelector('.backtogreeksaladstep1')
+  DOMSelectors.backtogreeksaladstep1.addEventListener('click', greeksaladstep1)
+}
+
+function greeksaladstep1questions() {
+  clearHTML()
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "question">
+    <h2>What long green vegetable do you add?</h2>
+    <button class = "notcucumber">Asparagus</button>
+    <button class = "notcucumber">Zucchini</button>
+    <button class = "notcucumber">Green Beans</button>
+    <button class = "cucumber">Cucumber</button>
+    <button class = "notcucumber">Orka</button>
+    </div>`
+  )
+  DOMSelectors.cucumber = document.querySelector('.cucumber')
+  DOMSelectors.cucumber.addEventListener('click', () => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class = "question">
+      <h2>What color bell pepper?</h2>
+      <button class = "greenbellpepper">Green Bell Pepper</button>
+      <button class = "notgreenbellpepper">Orange Bell Pepper</button>
+      <button class = "notgreenbellpepper">Red Bell Pepper</button>
+      <button class = "notgreenbellpepper">Yellow Bell Pepper</button>
+      </div>`
+    )
+    DOMSelectors.greenbellpepper = document.querySelector('.greenbellpepper')
+    DOMSelectors.greenbellpepper.addEventListener('click', () => {
+      DOMSelectors.cardcontainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class = "question">
+        <h2>What type of tomato?</h2>
+        <button class = "notcherrytomato">Tomato</button>
+        <button class = "notcherrytomato">Grape Tomato</button>
+        <button class = "cherrytomato">Cherry Tomato</button>
+        </div>`
+      )
+      DOMSelectors.cherrytomato = document.querySelector('.cherrytomato')
+      DOMSelectors.cherrytomato.addEventListener('click', () => {
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class = "question">
+          <h2>What kind of onion?</h2>
+          <button class = "notredonion">Leeks</button>
+          <button class = "redonion">Red Onion</button>
+          <button class = "notredonion">Green Onion</button>
+          <button class = "notredonion">Yellow Onion</button>
+          <button class = "notredonion">White Onion</button>
+          </div>`
+        )
+        DOMSelectors.redonion = document.querySelector('.redonion')
+        DOMSelectors.redonion.addEventListener('click', () => {
+          DOMSelectors.cardcontainer.insertAdjacentHTML(
+            'beforeend',
+            `<div class = question>
+            <h2>What Greek-related ingredient do you add?</h2>
+            <button class = "olives">Olives</button>
+            <button class = "notolives">Olive Oil</button>
+            <button class = "notolives">Greek Yogurt</button>
+            <button class = "notolives">Feta Cheese</button>
+            </div>`
+          )
+          DOMSelectors.olives = document.querySelector('.olives')
+          DOMSelectors.olives.addEventListener('click', () => {
+            DOMSelectors.cardcontainer.insertAdjacentHTML(
+              'beforeend',
+              `<div class = "question">
+              <h5><button class = "submitgreeksaladstep1">Next Step</button></h5>
+              </div>`
+            )
+            DOMSelectors.submitgreeksaladstep1 = document.querySelector('.submitgreeksaladstep1')
+            DOMSelectors.submitgreeksaladstep1.addEventListener('click', greeksaladstep2)
+          })
+          DOMSelectors.notolives = document.querySelectorAll('.notolives')
+          DOMSelectors.notolives.forEach((button) => {
+            button.addEventListener('click', () => {
+              wronggreeksaladstep1choice()
+            })
+          })
+        })
+        DOMSelectors.notredonion = document.querySelectorAll('.notredonion')
+        DOMSelectors.notredonion.forEach((button) => {
+          button.addEventListener('click', () => {
+            wronggreeksaladstep1choice()
+          })
+        })
+      })
+      DOMSelectors.notcherrytomato = document.querySelectorAll('.notcherrytomato')
+      DOMSelectors.notcherrytomato.forEach((button) => {
+        button.addEventListener('click', () => {
+          wronggreeksaladstep1choice()
+        })
+      })
+    })
+    DOMSelectors.notgreenbellpepper = document.querySelectorAll('.notgreenbellpepper')
+    DOMSelectors.notgreenbellpepper.forEach((button) => {
+      button.addEventListener('click', () => {
+        wronggreeksaladstep1choice()
+      })
+    })
+  })
+  DOMSelectors.notcucumber = document.querySelectorAll('.notcucumber')
+  DOMSelectors.notcucumber.forEach((button) => {
+    button.addEventListener('click', () => {
+      wronggreeksaladstep1choice()
+    });
+  });
+};
+
+function greeksaladstep2() {
+  clearHTML();
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class="card">
+      <h1>Greek Salad</h1>
+      <h4>Dressing: Extra-Virgin Olive Oil, Red Wine Vinegar, dried oregano, Dijon Mustard, Sea Salt, Black Pepper</h4>
+      <button class="greeksaladstep2skipbutton">Skip</button>
+    </div>`
+  );
+  DOMSelectors.greeksaladstep2skipbutton = document.querySelector('.greeksaladstep2skipbutton');
+  DOMSelectors.greeksaladstep2skipbutton.addEventListener('click', greeksaladstep2questions);
+}
+
+function wronggreeksaladstep2choice() {
+  clearHTML() 
+  DOMSelectors.cardcontainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class = "card">
+    <h2>Try again...</h2>
+    <button class = "backtogreeksaladstep2">Back to step 2</button>
+    </div>`
+  )
+  DOMSelectors.backtogreeksaladstep2 = document.querySelector('.backtogreeksaladstep2')
+  DOMSelectors.backtogreeksaladstep2.addEventListener('click', greeksaladstep2)
 }
 
 function greeksaladstep2questions() {
-  clearHTML()
+  clearHTML();
   DOMSelectors.cardcontainer.insertAdjacentHTML(
-    'beforeend'
-    `<div class = "card">
+    'beforeend',
+    `<div class="question">
+      <h2>What kind of oil do you add?</h2>
+      <button class = "notextravirginoliveoil">Canola Oil</button>
+      <button class = "notextravirginoliveoil">Olive Oil</button>
+      <button class = "extravirginoliveoil">Extra-Virgin Olive Oil</button>
+      <button class = "notextravirginoliveoil">Sunflower Oil</button>
+      <button class = "notextravirginoliveoil">Avocado Oil</button>
+      <button class = "notextravirginoliveoil">Vegetable Oil</button>
     </div>`
-  )
+  );
+  DOMSelectors.extravirginoliveoil = document.querySelector('.extravirginoliveoil')
+  DOMSelectors.extravirginoliveoil.addEventListener('click', () => {
+    DOMSelectors.cardcontainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class = "question">
+      <h2>What type of vinegar?</h2>
+      <button class = "notredwinevinegar">White rice vinegar</button>
+      <button class = "notredwinevinegar">White wine vinegar</button>
+      <button class = "redwinevinegar">Red wine vinegar</button>
+      <button class = "notredwinevinegar">Apple cider vinegar</button>
+      </div>`
+    )
+    DOMSelectors.redwinevinegar = document.querySelector('.redwinevinegar')
+    DOMSelectors.redwinevinegar.addEventListener('click', () => {
+      DOMSelectors.cardcontainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class = "question">
+        <h2>What dried ingredient?</h2>
+        <button class = "driedoregano">Dried Oregano</button>
+        <button class = "notdriedoregano">Dried Rosemary</button>
+        <button class = "notdriedoregano">Dried Sage</button>
+        <button class = "notdriedoregano">Dried Thyme</button>
+        </div>`
+      )
+      DOMSelectors.driedoregano = document.querySelector('.driedoregano')
+      DOMSelectors.driedoregano.addEventListener('click', () => {
+        DOMSelectors.cardcontainer.insertAdjacentHTML(
+          'beforeend',
+          `<div class = "question">
+          <h2>What condiment do you add?</h2>
+          <button class = "notdijonmustard">Mayo</button>
+          <button class = "dijonmustard">Dijon Mustard</button>
+          <button class = "notdijonmustard">Ketchup</button>
+          <button class = "notdijonmustard">Relish</button>
+          </div>`
+        )
+        DOMSelectors.dijonmustard = document.querySelector('.dijonmustard')
+        DOMSelectors.dijonmustard.addEventListener('click', () => {
+          DOMSelectors.cardcontainer.insertAdjacentHTML(
+            'beforeend',
+            `<div class = "question">
+            <h2>What type of salt?</h2>
+            <button class = "notseasalt">Smoked Salt</button>
+            <button class = "notseasalt">Iodized Salt</button>
+            <button class = "seasalt">Sea Salt</button>
+            <button class = "notseasalt">Kosher Salt</button>
+            </div>`
+          )
+          DOMSelectors.seasalt = document.querySelector('.seasalt')
+          DOMSelectors.seasalt.addEventListener('click', () => {
+            DOMSelectors.cardcontainer.insertAdjacentHTML(
+              'beforeend',
+              `<div class = "question">
+              <h2>What type of pepper?</h2>
+              <button class = "notgreekblackpepper">Red Pepper</button>
+              <button class = "notgreekblackpepper">White Pepper</button>
+              <button class = "greekblackpepper">Black Pepper</button>
+              </div>`
+            )
+            DOMSelectors.greekblackpepper = document.querySelector('.greekblackpepper')
+            DOMSelectors.greekblackpepper.addEventListener('click', () => {
+              DOMSelectors.cardcontainer.insertAdjacentHTML(
+                'beforeend',
+                `<div class = "question>
+                <h5><button class = "submitgreeksaladstep2">Next Step</button></h5>
+                </div>`
+              )
+              DOMSelectors.submitgreeksaladstep2 = document.querySelector('.submitgreeksaladstep2')
+              DOMSelectors.submitgreeksaladstep2.addEventListener('click', greeksaladstep3())
+            })
+            DOMSelectors.notgreekblackpepper = document.querySelectorAll('.notgreekblackpepper')
+            DOMSelectors.notgreekblackpepper.forEach((button) => {
+              button.addEventListener('click', () => {
+                wronggreeksaladstep2choice()
+              })
+            })
+          })
+          DOMSelectors.notseasalt = document.querySelectorAll('.notseasalt')
+          DOMSelectors.notseasalt.forEach((button) => {
+            button.addEventListener('click', () => {
+              wronggreeksaladstep2choice()
+            })
+          })
+        })
+        DOMSelectors.notdijonmustard = document.querySelectorAll('.notdijonmustard')
+        DOMSelectors.notdijonmustard.forEach((button) => {
+          button.addEventListener('click', () => {
+            wronggreeksaladstep2choice()
+          })
+        })
+      })
+      DOMSelectors.notdriedoregano = document.querySelectorAll('.notdriedoregano')
+      DOMSelectors.notdriedoregano.forEach((button) => {
+        button.addEventListener('click', () => {
+          wronggreeksaladstep1choice()
+        })
+      })
+    })
+    DOMSelectors.notredwinevinegar = document.querySelectorAll('.notredwinevinegar')
+    DOMSelectors.notredwinevinegar.forEach((button) => {
+      button.addEventListener('click', () => {
+        wronggreeksaladstep2choice()
+      })
+    })
+  })
+  DOMSelectors.notextravirginoliveoil = document.querySelectorAll('.notextravirginoliveoil')
+  DOMSelectors.notextravirginoliveoil.forEach((button) => {
+    button.addEventListener('click', () => {
+      wronggreeksaladstep2choice()
+    })
+  })
 }
+
 
 function greeksaladstep3() {
   clearHTML()
