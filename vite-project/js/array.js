@@ -10,20 +10,19 @@ const fooditem = [
         button: `<button class ="icecreamrecipe">Make Ice Cream</button>`
     },
     {
+        name: "Shrimp Cocktail",
+        difficulty: "3",
+        button: `<button class ="shrimpcocktailrecipe">Make Shrimp Cocktail</button>`
+    },    
+    {
         name: "Tomato Soup",
-        difficulty: "x",
+        difficulty: "4",
         button: `<button class ="tomatosouprecipe">Make Tomato Soup</button>`
     },
     {
         name: "Greek Salad",
-        difficulty: "x",
-
+        difficulty: "5",
         button: `<button class ="greeksaladrecipe">Make Greek Salad</button>`
-    },    
-    {
-        name: "Shrimp Cocktail",
-        difficulty: "x",
-        button: `<button class ="shrimpcocktailrecipe">Make Shrimp Cocktail</button>`
     },    
 ]
 

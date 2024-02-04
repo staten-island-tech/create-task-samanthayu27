@@ -52,7 +52,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: #CDE7B0;
 }
 
 .cardcontainer{
@@ -69,11 +69,11 @@ button:hover {
   height: 300px;
   width: 300px;
   border-radius: 12px;
-  background-color: green;
+  background-color: #A3BFA8;
 
 }
 
 .question{
-  background-color: red;
+  background-color: #8BD097;
   width: 1200px
 }
